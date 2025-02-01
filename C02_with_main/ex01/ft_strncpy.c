@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 13:56:06 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 16:01:17 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/01 13:19:14 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/01 15:34:50 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
 		i++;
@@ -29,10 +29,11 @@ char	*ft_strcpy(char *dest, char *src)
 
 int	main(void)
 {
-	char	src[50] = "Turning test";
-	char	dest[50];
+	char src[100] = "You can silence me but you can't silence the truth!";
+	char dest[100];
+	unsigned int n = 48;
 
-	ft_strcpy(dest, src);
+	ft_strncpy(dest, src, n);
 	printf("%s\n", dest);
 	return (0);
 }

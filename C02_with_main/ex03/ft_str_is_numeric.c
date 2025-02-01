@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 13:56:06 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 16:01:17 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/01 16:49:36 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/01 17:10:10 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_numeric(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (str[0] == '\0')
+		return 1;
+
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] < '0' || str[i] > '9')
+		{
+			return 0;
+		}
 		i++;
 	}
-	dest [i] = '\0';
-	return (dest);
+	return (1);
 }
 
 int	main(void)
 {
-	char	src[50] = "Turning test";
-	char	dest[50];
+	char *str1 = "666";
+	char *str2 = "im serious stop looking";
+	char *str3 = "";
 
-	ft_strcpy(dest, src);
-	printf("%s\n", dest);
+        printf("%d\n", ft_str_is_numeric(str1));
+        printf("%d\n", ft_str_is_numeric(str2));
+        printf("%d\n", ft_str_is_numeric(str3));
 	return (0);
 }

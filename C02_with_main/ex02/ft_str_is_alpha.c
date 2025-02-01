@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 13:56:06 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 16:01:17 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/01 15:40:11 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/01 17:09:43 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (str[0] == '\0')
+	return (1);
+
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z'))
+		{
+			return 0;
+		}
 		i++;
 	}
-	dest [i] = '\0';
-	return (dest);
+	return 1;
 }
 
 int	main(void)
 {
-	char	src[50] = "Turning test";
-	char	dest[50];
+	char *str1 = "Stop looking at my code";
+	char *str2 = "666";
+	char *str3 = "";
 
-	ft_strcpy(dest, src);
-	printf("%s\n", dest);
+	printf("%d\n", ft_str_is_alpha(str1));
+        printf("%d\n", ft_str_is_alpha(str2));
+	printf("%d\n", ft_str_is_alpha(str3));
 	return (0);
 }
+	
+
+
+
