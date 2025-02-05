@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 15:40:11 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 17:09:43 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/01 17:34:58 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/04 12:47:29 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_uppercase(char *str)
 {
 	int i;
 
@@ -22,27 +22,26 @@ int	ft_str_is_alpha(char *str)
 
 	while (str[i] != '\0')
 	{
-		if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z'))
+		if (str[i] < 'A' || str[i] > 'Z')
 		{
-			return 0;
+			return (0);
 		}
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	main(void)
 {
-	char *str1 = "Stop looking at my code";
-	char *str2 = "42";
-	char *str3 = "";
+	char *str1 = "FINE";
+	char *str2 = "this was your last chance";
+	char *str3 = "42";
+	char *str4 = "";
 
-	printf("%d\n", ft_str_is_alpha(str1));
-        printf("%d\n", ft_str_is_alpha(str2));
-	printf("%d\n", ft_str_is_alpha(str3));
+	printf("%d\n", ft_str_is_uppercase(str1));
+	printf("%d\n", ft_str_is_uppercase(str2));
+	printf("%d\n", ft_str_is_uppercase(str3));
+	printf("%d\n", ft_str_is_uppercase(str4));
 	return (0);
 }
-	
-
-
 

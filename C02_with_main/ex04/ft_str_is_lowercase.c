@@ -35,7 +35,7 @@ int	main(void)
 {
 	char *str1 = "alright";
 	char *str2 = "That's it, don't say I did't warn you";
-	char *str3 = "666";
+	char *str3 = "42";
 	char *str4 = "";
 
 	printf("%d\n", ft_str_is_lowercase(str1));

@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 15:40:11 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 17:09:43 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/04 14:39:07 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/04 16:03:32 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (str[0] == '\0')
-	return (1);
-
-	while (str[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		if ((str[i] < 'A' || str[i] > 'Z') && (str[i] < 'a' || str[i] > 'z'))
-		{
-			return 0;
-		}
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	return 1;
+	return (s1[i] - s2[i]);
 }
 
 int	main(void)
 {
-	char *str1 = "Stop looking at my code";
-	char *str2 = "42";
-	char *str3 = "";
-
-	printf("%d\n", ft_str_is_alpha(str1));
-        printf("%d\n", ft_str_is_alpha(str2));
-	printf("%d\n", ft_str_is_alpha(str3));
+	printf("%d\n", ft_strcmp("Hello", "Hello"));
+	printf("%d\n", ft_strcmp("Hello", "Goodbye"));
 	return (0);
 }
-	
-
-
-

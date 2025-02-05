@@ -33,7 +33,7 @@ int	ft_str_is_numeric(char *str)
 
 int	main(void)
 {
-	char *str1 = "666";
+	char *str1 = "42";
 	char *str2 = "im serious stop looking";
 	char *str3 = "";
 
