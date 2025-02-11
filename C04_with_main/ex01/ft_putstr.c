@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 14:39:07 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/04 16:03:32 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/11 16:33:45 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/11 16:58:31 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	str[i] = '\0';
 }
 
 int	main(void)
 {
-	printf("%d\n", ft_strcmp("Hello", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "Goodbye"));
-	printf("%d\n", ft_strcmp("Hello", "Fiend"));
-	printf("%d\n", ft_strcmp("aaa", "aay"));
-	printf("%d\n", ft_strcmp("aaa", "zaa"));
+	char	strn[] = "test";
+	ft_putstr(strn);
 	return (0);
 }

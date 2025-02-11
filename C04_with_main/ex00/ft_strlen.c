@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 14:39:07 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/04 16:03:32 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/11 14:30:42 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/11 14:39:47 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strlen(char *str)
 {
 	int	i;
+	char	num;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
 		i++;
+		num++;
 	}
-	return (s1[i] - s2[i]);
+	return (num);
 }
 
 int	main(void)
 {
-	printf("%d\n", ft_strcmp("Hello", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "Goodbye"));
-	printf("%d\n", ft_strcmp("Hello", "Fiend"));
-	printf("%d\n", ft_strcmp("aaa", "aay"));
-	printf("%d\n", ft_strcmp("aaa", "zaa"));
+	char	strin[50] = "Hello";
+	printf("%d\n", ft_strlen(strin));
 	return (0);
 }

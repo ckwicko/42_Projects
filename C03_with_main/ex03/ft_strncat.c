@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 14:39:07 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/04 16:03:32 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/08 15:30:40 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/11 12:11:11 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+	j = 0;
+
+	while (dest[i] != '\0')
 		i++;
+
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (s1[i] - s2[i]);
+	dest [i] = '\0';
+
+	return dest;
 }
 
 int	main(void)
 {
-	printf("%d\n", ft_strcmp("Hello", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "Goodbye"));
-	printf("%d\n", ft_strcmp("Hello", "Fiend"));
-	printf("%d\n", ft_strcmp("aaa", "aay"));
-	printf("%d\n", ft_strcmp("aaa", "zaa"));
+	char a[50] = "Hello";
+	char b[] = "World";
+
+	printf("%s\n", ft_strncat(a, b, 8));
 	return (0);
 }

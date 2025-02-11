@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 14:39:07 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/04 16:03:32 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/05 14:55:33 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/05 15:04:07 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = str[i] - 32;
+		}
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	return (str);
 }
 
 int	main(void)
 {
-	printf("%d\n", ft_strcmp("Hello", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "Goodbye"));
-	printf("%d\n", ft_strcmp("Hello", "Fiend"));
-	printf("%d\n", ft_strcmp("aaa", "aay"));
-	printf("%d\n", ft_strcmp("aaa", "zaa"));
-	return (0);
+	char	str[] = "hello, World!";
+	printf("%s\n", ft_strupcase(str));
+	return 0;
 }

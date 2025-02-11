@@ -1,43 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 13:19:14 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/01 15:34:50 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/10 14:39:57 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/11 12:50:36 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	
+	unsigned int	j;
+
 	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
+	j = 0;	
+	while (dest[i] != '\0')
 		i++;
+	
+	while (src[j] != '\0')
+	{
+		dest[i] = src [j];
+		i++;
+		j++;
 	}
-	while (i < n)
+	while (i < size)
 	{
 		dest [i] = '\0';
 		i++;
 	}
-	return (dest);
+	size = i;
+
+	return size;
 }
 
+/*
 int	main(void)
 {
-	char src[100] = "You can silence me but you can't silence the truth!";
-	char dest[100];
-	unsigned int n = 48;
+	char	dest[50] = "Hello ";
+	char	src[50] = "world";
+	int	size = 20;
 
-	ft_strncpy(dest, src, n);
-	printf("%s\n", dest);
-	return (0);
+	printf("%d\n", ft_strlcat(dest, src, size));
+	return (0);	
 }
+
+*/
+
+
+/*
+ measure dest length
+ measure src length
+ combine them together
+ * attempt to combine src and dest, return the size they would have equalled
+*/
