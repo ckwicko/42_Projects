@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 15:44:32 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/12 17:42:12 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/12 17:48:41 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/12 18:02:14 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	main(int argc, char *argv[])
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = (argc - 1);
+	while (i > 0)
 	{
 		ft_putstr(argv[i]);
 		ft_putchar('\n');
-		i++;
+		i--;
 	}
 	return (0);
 }
