@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 14:30:42 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/11 14:39:47 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/12 14:41:25 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/12 15:04:38 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+int	main(int argc, char *argv[])
 {
 	int	i;
-	char	num;
 
+	(void)argc;
 	i = 0;
-	num = '\0';
-	while (str[i] != '\0')
+	while (argv[0][i])
 	{
 		i++;
-		num++;
 	}
-	return (num);
-}
-
-int	main(void)
-{
-	char	strin[50] = "Hello";
-	printf("%d\n", ft_strlen(strin));
-	return (0);
+	write(1, argv[0], i);
+	write(1, "\n", 1);
 }
