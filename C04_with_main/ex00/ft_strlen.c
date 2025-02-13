@@ -6,7 +6,7 @@
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:30:42 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/11 14:39:47 by cwickman         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:40:15 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_strlen(char *str)
 {
-	int	i;
 	char	num;
+	int	i;
 
 	i = 0;
 	num = '\0';

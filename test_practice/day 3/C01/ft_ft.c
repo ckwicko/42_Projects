@@ -1,46 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/11 11:08:17 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/11 11:34:17 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	ft_ft(int *nbr)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	*nbr = "42";
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
+	int	number;
+
+	//"s"
+	char *str = "s";
+
+	1
+	//'s'
+	char str2 = s;
+
+	//write(int fd, char *str, int bytes);
+	write(1, 'c', 1)
+	
+	//printf(char *str, void variable);
+	
+	//int 99;
+	char c;
+
+
+'c' "c"
+
+
+	//ft_putchar(char c);
+	ft_putchar(c);
+
+	ft_ft(&number);
+	printf("%d\n", number);
 	return (0);
 }

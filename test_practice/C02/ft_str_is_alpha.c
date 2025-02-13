@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/10 11:43:21 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/10 12:51:00 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_str_is_alpha(char *str)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	while (str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z')
 	{
-		write(1, "-2147483648", 11);
-		return;
+		if (str[i] != '\0')
+		{
+			return (1);
+		}
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	return (0);
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
+	char	*str1 = "test";
+	char	*str2 = "2nd test";
+
+	printf("%d\n", ft_str_is_alpha(str1));
+	printf("%d\n", ft_str_is_alpha(str2));
 	return (0);
 }

@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/13 14:58:48 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/13 15:06:19 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strcat(char *dest, char *src)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	int	i;
+	int	j;
+	
+	i = 0;
+	j = 0;
+	while (dest[j])
+		j++;
+	while (src[i])
 	{
-		write(1, "-2147483648", 11);
-		return;
+		dest[j] = src[i];
+		i++;
+		j++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	return (dest);
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
-	return (0);
+	char	str[50] = "World";
+	char	des[50] = "Hello";
+
+	ft_strcat(des, str);
+	printf("%s\n", des);
 }

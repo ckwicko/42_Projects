@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   up.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/12 12:44:14 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/12 12:58:55 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strupcase(char *str)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	int	i;
+	
+	i = 0;
+	while (str[i])
 	{
-		write(1, "-2147483648", 11);
-		return;
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = (str[i] - 32);
+		}
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	return (str);
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
+	char	strn[50] = "Test";
+
+	ft_strupcase(strn);
+	printf("%s\n", strn);
 	return (0);
 }

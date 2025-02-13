@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/13 15:06:48 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/13 15:18:58 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strstr(char *str, char *to_find)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	while (str[i])
 	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+		while (to_find[i])
+		{
+			while (str[i] == to_find[i])
+
+
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
+	char	strn[50] = "Hello World";
+	char	find[50] = "or";
+
+	ft_strstr(strn, find);
+	printf("%s\n", find);
 	return (0);
 }

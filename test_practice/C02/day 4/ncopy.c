@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ncopy.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwickman <cwickman@student.42adel.org      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:00:56 by cwickman          #+#    #+#             */
-/*   Updated: 2025/02/13 13:35:19 by cwickman         ###   ########.fr       */
+/*   Created: 2025/02/12 12:26:35 by cwickman          #+#    #+#             */
+/*   Updated: 2025/02/12 12:33:16 by cwickman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	write(1, &c, 1);
-}
+	unsigned int i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	while (src[i])
 	{
-		write(1, "-2147483648", 11);
-		return;
+		dest[i] = src[i];
+		i++;
 	}
-	if (nb < 0)
+	while (i < n)
 	{
-		ft_putchar('-');
-		nb = -nb;
+		dest[i] = '\0';
+		i++;
 	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	return (dest);
 }
 
 int	main(void)
 {
-	ft_putnbr(42);
-	ft_putchar('\n');
-	ft_putnbr(-2147483648);
-	ft_putchar('\n');
-	ft_putnbr(-12345);
-	ft_putchar('\n');
+	char sr[50] = "hello";
+	char des[50];
+	unsigned int size = 50;
+
+	printf("%s\n", ft_strncpy(des, sr, size));
 	return (0);
 }

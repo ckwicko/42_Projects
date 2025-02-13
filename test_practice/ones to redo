@@ -1,0 +1,34 @@
+maybe like 1 or 2 from C00
+
+C01
+
+ex01
+why are the pointers to pointers stored in main
+why do we use the address of nbr 2 with the function
+
+ex02
+remember to use double int instead of single
+	printf("%d %d\n", x, y);
+
+        printf("%d\n", num1, num2);
+
+ex03
+remember to use &newvariable when you want to copy a previous functions varible value
+
+ex04
+why does this use & in the first line and not second, something to do with pointers and addresses
+        ft_ultimate_div_mod(&c, &d);
+        printf("div %d, remain %d\n", c, d);
+
+
+C02
+
+ex00
+almost, just in main seperate called function and printf and remember to add null terminator to dest in function
+
+ex01
+so close again just used src[i] < n instead of i < n in first while loop and forgot i++ in second while loop
+
+ex06
+make sure to use - instead of +
+make sure to use && instead of ||
